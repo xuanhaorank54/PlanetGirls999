@@ -76,13 +76,6 @@ function convertCSVArrayToTraineeData(csvArrays) {
   trainees = csvArrays.map(function(traineeArray, index) {
     trainee = {};
     trainee.name_romanized = traineeArray[0];
-    if (traineeArray[2] === "-") {
-      // trainee only has hangul
-      trainee.name_hangul = traineeArray[1];
-    } else {
-      trainee.name_japanese = traineeArray[1];
-      trainee.name_hangul = traineeArray[2];
-    }
     trainee.company = traineeArray[3];
     trainee.grade = traineeArray[4];
     trainee.birthyear = traineeArray[5];
@@ -111,7 +104,7 @@ function newTrainee() {
 // Constructor for a blank ranking list
 function newRanking() {
   // holds the ordered list of rankings that the user selects
-  let ranking = new Array(9);
+  let ranking = new Array(13);
   for (let i = 0; i < ranking.length; i++) {
     ranking[i] = newTrainee();
   }
