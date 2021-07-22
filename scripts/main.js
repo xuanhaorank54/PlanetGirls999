@@ -76,6 +76,13 @@ function convertCSVArrayToTraineeData(csvArrays) {
   trainees = csvArrays.map(function(traineeArray, index) {
     trainee = {};
     trainee.name_romanized = traineeArray[0];
+    if (traineeArray[2] === "-") {
+      // trainee only has hangul
+      trainee.name_hangul = traineeArray[1];
+    } else {
+      trainee.name_japanese = traineeArray[1];
+      trainee.name_hangul = traineeArray[2];
+    }	
     trainee.name_hangul = traineeArray[2];
     trainee.company = traineeArray[3];
     trainee.grade = traineeArray[4];
